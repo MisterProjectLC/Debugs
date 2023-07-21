@@ -10,7 +10,7 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	
 func _process(delta):
-	Global.player_position = self.position
+	Global.player_position = self.global_position
 	var velocity = Vector2.ZERO 
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1

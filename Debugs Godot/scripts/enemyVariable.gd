@@ -14,13 +14,14 @@ func _process(_delta):
 	look_at(Global.player_position)
 	move_and_collide(Vector2())
 
-
 func _on_area_2d_body_entered(body):
 	if "player" in body.name and Global.upgrades[3] == 1:
 		Global.alive -= 1
 		queue_free()
 	if "bulletPlayer" in body.name:
 		life -= Global.dmg
+	if "enemyBullet" in body.name:
+		life -= 2
 	if life <= 0:
 		Global.alive -= 1
 		queue_free()
