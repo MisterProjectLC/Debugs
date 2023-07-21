@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://fg7ol3cw5i8e"]
 
 [ext_resource type="Script" path="res://scripts/sala_2.gd" id="1_hu7bo"]
-[ext_resource type="PackedScene" path="res://scenes/EnemyVariable.tscn" id="2_wxldk"]
-[ext_resource type="PackedScene" path="res://scenes/EnemyToken.tscn" id="3_w21wh"]
-[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="4_x4q5p"]
+[ext_resource type="PackedScene" uid="uid://cmmha3a2v24fh" path="res://scenes/EnemyVariable.tscn" id="2_wxldk"]
+[ext_resource type="PackedScene" uid="uid://dnu48lumhi8ok" path="res://scenes/EnemyToken.tscn" id="3_w21wh"]
+[ext_resource type="PackedScene" uid="uid://d3o4hokfl01gr" path="res://scenes/player.tscn" id="4_x4q5p"]
 [ext_resource type="Texture2D" uid="uid://das41b004xwao" path="res://tilemaps/floor.png" id="5_ilrct"]
-[ext_resource type="PackedScene" path="res://scenes/portaE.tscn" id="6_vbsd6"]
-[ext_resource type="PackedScene" path="res://scenes/portaS.tscn" id="7_u84fl"]
+[ext_resource type="PackedScene" uid="uid://bxpmmffr5afbw" path="res://scenes/portaE.tscn" id="6_vbsd6"]
+[ext_resource type="PackedScene" uid="uid://0qgn7w5jan8t" path="res://scenes/portaS.tscn" id="7_u84fl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5757"]
 texture = ExtResource("5_ilrct")
