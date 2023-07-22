@@ -3,11 +3,11 @@ var life = 10
 
 func _ready():
 	if Global.index >= 9:
-		life = 30
+		life = 22
 	elif Global.index >= 6:
-		life = 20
+		life = 18
 	elif Global.index >= 3:
-		life = 15
+		life = 14
 	
 func _process(_delta):
 	position += (Global.player_position - position)/50
@@ -20,8 +20,10 @@ func _on_area_2d_body_entered(body):
 		queue_free()
 	if "bulletPlayer" in body.name:
 		life -= Global.dmg
-	if "enemyBullet" in body.name:
-		life -= 2
+	elif "enemyBullet" in body.name:
+		life -= 1
+	elif "enemyExplosion" in body.name:
+		life -= 5
 	if life <= 0:
 		Global.alive -= 1
 		queue_free()

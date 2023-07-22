@@ -1,9 +1,7 @@
 extends RigidBody2D
 var life = 7
-@export var spawn_distance = 85
-var bullet_speed = 900
-var bullet = preload("res://scenes/BulletEnemy.tscn")
-var can_fire = true
+var bullet = preload("res://scenes/bomb.tscn")
+var can_fire = false
 
 func _ready():
 	if Global.index >= 9:
@@ -14,18 +12,15 @@ func _ready():
 		life = 10
 
 func _process(_delta):
-	
 	if can_fire:
 		fire()
 
 func fire():
 	can_fire = false
 	var bullet_instance = bullet.instantiate()
-	var direction = (Global.player_position - global_position).normalized()
-	bullet_instance.global_position = global_position + direction * spawn_distance
+	bullet_instance.global_position = Global.player_position
 	get_parent().add_child(bullet_instance)
 	bullet_instance.rotation_degrees = rotation_degrees
-	bullet_instance.apply_central_impulse(direction * bullet_speed)
 	$Timer.start()
 
 func _on_timer_timeout():
@@ -34,6 +29,8 @@ func _on_timer_timeout():
 func _on_area_2d_body_entered(body):
 	if "bulletPlayer" in body.name:
 		life -= Global.dmg
+	elif "enemyBullet" in body.name:
+		life -= 1
 	elif "enemyExplosion" in body.name:
 		life -= 5
 	if life <= 0:

@@ -9,7 +9,7 @@ func _process(_delta):
 	pass
 
 func _on_area_2d_body_entered(body):
-	if "player" in body.name or "porta" in body.name or "enemyVariable" in body.name:
+	if "p" in body.name or "enemyExplosion" in body.name:
 		queue_free()
 
 	
