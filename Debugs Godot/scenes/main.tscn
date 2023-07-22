@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://boweakekofe5s"]
+[gd_scene load_steps=9 format=3 uid="uid://boweakekofe5s"]
 
 [ext_resource type="PackedScene" uid="uid://d3o4hokfl01gr" path="res://scenes/player.tscn" id="1_1n0pn"]
+[ext_resource type="PackedScene" uid="uid://cxf4o04olnk1t" path="res://scenes/EnemyBomb.tscn" id="4_l11r7"]
 [ext_resource type="Texture2D" uid="uid://das41b004xwao" path="res://tilemaps/floor.png" id="4_u5spq"]
 [ext_resource type="PackedScene" uid="uid://0qgn7w5jan8t" path="res://scenes/portaS.tscn" id="7_prf8b"]
 
@@ -55,3 +56,6 @@ layer_1/tile_data = PackedInt32Array(983100, 0, 0, 1048636, 0, 0, 1179708, 0, 0,
 
 [node name="portaSaida" parent="." groups=["porta"] instance=ExtResource("7_prf8b")]
 position = Vector2(1935, 540)
+
+[node name="enemyBomb" parent="." instance=ExtResource("4_l11r7")]
+position = Vector2(1323, 630)

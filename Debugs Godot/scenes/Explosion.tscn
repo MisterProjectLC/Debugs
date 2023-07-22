@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://2spexirh7j33"]
+
+[ext_resource type="Script" path="res://scripts/explosion.gd" id="1_57omf"]
+[ext_resource type="Texture2D" uid="uid://colim73363qfr" path="res://sprites/inimigos/explosion.png" id="2_tmflo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yisat"]
+size = Vector2(269, 246)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snwug"]
+size = Vector2(270, 253)
+
+[node name="enemyExplosion" type="RigidBody2D" groups=["enemy", "f_fire"]]
+collision_mask = 0
+mass = 0.01
+gravity_scale = 0.0
+script = ExtResource("1_57omf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_yisat")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.4)
+texture = ExtResource("2_tmflo")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_snwug")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

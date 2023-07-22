@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxf4o04olnk1t"]
+
+[ext_resource type="Texture2D" uid="uid://bltotf4hh0u6e" path="res://sprites/inimigos/inimigo - bomba.png" id="1_lv3ur"]
+[ext_resource type="Script" path="res://scripts/EnemyBomb.gd" id="1_x5r4l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwrc8"]
+size = Vector2(156, 72.5)
+
+[node name="enemyBomba" type="RigidBody2D" groups=["enemy"]]
+collision_mask = 0
+mass = 1000.0
+gravity_scale = 0.0
+can_sleep = false
+script = ExtResource("1_x5r4l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.500003, 1)
+scale = Vector2(0.114815, 0.114467)
+texture = ExtResource("1_lv3ur")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mwrc8")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.75)
+shape = SubResource("RectangleShape2D_mwrc8")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered" flags=18]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout" flags=18]
