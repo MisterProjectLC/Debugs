@@ -28,6 +28,7 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_mwrc8")
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

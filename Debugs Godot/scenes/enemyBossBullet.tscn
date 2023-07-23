@@ -1,34 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://doxgffjfvhr1f"]
+[gd_scene load_steps=6 format=3 uid="uid://b7jfbk81upirr"]
 
-[ext_resource type="Script" path="res://scripts/BulletEnemy.gd" id="1_1sch1"]
-[ext_resource type="Texture2D" uid="uid://qybdvpb2acw" path="res://sprites/inimigos/tiroInimigo.PNG" id="1_xpaku"]
+[ext_resource type="Script" path="res://scripts/BulletEnemy.gd" id="1_i401p"]
+[ext_resource type="Texture2D" uid="uid://yigeadvk73oh" path="res://sprites/inimigos/ponteiro.png" id="2_2e4mo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffw63"]
-size = Vector2(36, 12)
+size = Vector2(127, 81)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iw10r"]
-size = Vector2(36, 12)
+size = Vector2(127, 40)
 
-[node name="enemyBullet" type="RigidBody2D" groups=["enemy", "f_fire"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s348p"]
+size = Vector2(19.5, 79)
+
+[node name="enemyBossBullet" type="RigidBody2D" groups=["enemy", "f_fire"]]
 collision_mask = 0
 gravity_scale = 0.0
-script = ExtResource("1_1sch1")
+script = ExtResource("1_i401p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.5, 3.5)
 shape = SubResource("RectangleShape2D_ffw63")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_xpaku")
+texture = ExtResource("2_2e4mo")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-5.5, 4)
 shape = SubResource("RectangleShape2D_iw10r")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4.25, 4)
+shape = SubResource("RectangleShape2D_s348p")
+
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(7.15256e-07, 2.38419e-07)
-scale = Vector2(1.8, 0.5)
+position = Vector2(-6, 4)
+scale = Vector2(6.3, 4.1)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered" flags=18]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited" flags=18]

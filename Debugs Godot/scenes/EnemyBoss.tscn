@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci281c7brvhlc"]
+
+[ext_resource type="Script" path="res://scripts/enemyBoss.gd" id="1_qb122"]
+[ext_resource type="Texture2D" uid="uid://g07050p8xldb" path="res://sprites/inimigos/inimigo - boss.png" id="2_t6xce"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e3vhk"]
+radius = 106.17
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cthfq"]
+radius = 107.075
+
+[node name="enemyBoss" type="RigidBody2D" groups=["enemy"]]
+collision_mask = 0
+mass = 1000.0
+gravity_scale = 0.0
+can_sleep = false
+script = ExtResource("1_qb122")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_t6xce")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 10)
+shape = SubResource("CircleShape2D_e3vhk")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 10)
+shape = SubResource("CircleShape2D_cthfq")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered" flags=18]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout" flags=18]
