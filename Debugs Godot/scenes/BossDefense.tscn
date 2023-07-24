@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwsoegc77ofm"]
+
+[ext_resource type="Script" path="res://scripts/enemyBossDefense.gd" id="1_ag6yg"]
+[ext_resource type="Texture2D" uid="uid://gagu60n4oqdi" path="res://sprites/inimigos/barreira.png" id="2_r6uqn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffw63"]
+size = Vector2(24, 232)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iw10r"]
+size = Vector2(24, 232)
+
+[node name="enemyBossDefense" type="RigidBody2D" groups=["enemy"]]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_ag6yg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_ffw63")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.674927)
+texture = ExtResource("2_r6uqn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_iw10r")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered" flags=18]
