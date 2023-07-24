@@ -1,6 +1,5 @@
 extends RigidBody2D
 var life = 40
-@export var spawn_distance = 85
 
 func _ready():
 	pass
@@ -8,10 +7,12 @@ func _ready():
 func _process(_delta):
 	if Global.defense == 0:
 		visible = false
-		collision_layer = 2
+		$CollisionShape2D.disabled = true
+		$Area2D/CollisionShape2D.disabled = true
 	else:
 		visible = true
-		collision_layer = 1
+		$CollisionShape2D.disabled = false
+		$Area2D/CollisionShape2D.disabled = false
 
 func _on_area_2d_body_entered(body):
 	if "bulletPlayer" in body.name:

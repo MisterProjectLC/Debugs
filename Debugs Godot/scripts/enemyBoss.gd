@@ -42,7 +42,7 @@ func _on_timer_timeout():
 			bullet_instance.global_position = Vector2(x, y)
 			get_parent().add_child(bullet_instance)
 			bullet_instance.rotation_degrees = rad_to_deg(atan2(direction.y, direction.x))
-			bullet_instance.apply_central_impulse(direction * 1000)
+			bullet_instance.apply_central_impulse(direction * 800)
 
 
 func _on_area_2d_body_entered(body):
