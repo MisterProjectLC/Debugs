@@ -9,7 +9,7 @@ func _process(_delta):
 	pass
 
 func _on_area_2d_body_entered(body):
-	if "p" in body.name:
+	if "player" in body.name:
 		queue_free()
 
 	
