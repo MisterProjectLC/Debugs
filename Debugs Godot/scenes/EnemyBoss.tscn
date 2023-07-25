@@ -87,6 +87,10 @@ shape = SubResource("RectangleShape2D_n5q0s")
 wait_time = 2.5
 autostart = true
 
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 7.5
+autostart = true
+
 [node name="enemyBossDefense" parent="." instance=ExtResource("3_sewhv")]
 position = Vector2(-128, 3)
 
@@ -103,3 +107,4 @@ rotation = 1.5708
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered" flags=18]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout" flags=18]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
