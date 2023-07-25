@@ -77,5 +77,4 @@ func _on_area_2d_body_entered(body):
 func _on_timer_2_timeout():
 		var spawn_instance = spawn.instantiate()
 		spawn_instance.global_position = global_position
-		spawn_instance.set_collision_mask(0)
 		get_parent().add_child(spawn_instance)

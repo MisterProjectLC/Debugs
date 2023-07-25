@@ -37,3 +37,8 @@ func fire():
 	get_parent().add_child(bullet_instance)
 	bullet_instance.rotation_degrees = rotation_degrees
 	bullet_instance.apply_central_impulse(direction * 1100)
+
+
+func _on_timer_timeout():
+	fire()
+	queue_free()

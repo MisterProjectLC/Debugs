@@ -1,5 +1,6 @@
 extends RigidBody2D
 var life = 3
+var spawn = preload("res://scenes/enemySpaw_1.tscn")
 
 func _ready():
 	if Global.index >= 9:
@@ -27,3 +28,9 @@ func _on_area_2d_body_entered(body):
 	if life <= 0:
 		Global.alive -= 1
 		queue_free()
+
+func _on_timer_timeout():
+	var spawn_instance = spawn.instantiate()
+	spawn_instance.global_position = global_position
+	get_parent().add_child(spawn_instance)
+	spawn_instance.rotation_degrees = rotation_degrees
