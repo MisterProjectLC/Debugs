@@ -21,6 +21,7 @@ func _process(_delta):
 		position.x -= 2
 	elif posx < 0 and posx < -1000 and global_position.x > 100:
 		position.x += 2
+	rotation_degrees = rotation_degrees
 
 func _on_timer_timeout():
 	var bullet_instance = bullet.instantiate()
