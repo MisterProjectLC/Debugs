@@ -1,21 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3o4hokfl01gr"]
+[gd_scene load_steps=7 format=3 uid="uid://d3o4hokfl01gr"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1qpqu"]
-[ext_resource type="Texture2D" uid="uid://040q2i5fa7it" path="res://sprites/player/armado - player - costa.png" id="2_un12i"]
 [ext_resource type="Texture2D" uid="uid://bslkot7qeiip3" path="res://sprites/player/armado - player - dir.png" id="3_ngyy0"]
 [ext_resource type="Texture2D" uid="uid://c0m4x32kkf6x1" path="res://sprites/player/armado - player - esq.png" id="4_t0oqf"]
-[ext_resource type="Texture2D" uid="uid://cl2l6cgtoxnyc" path="res://sprites/player/armado - player - frente .png" id="5_r44sm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mxd7x"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_un12i")
-}],
-"loop": true,
-"name": &"costa",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_ngyy0")
@@ -30,14 +20,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"esq",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_r44sm")
-}],
-"loop": true,
-"name": &"frente",
 "speed": 5.0
 }]
 

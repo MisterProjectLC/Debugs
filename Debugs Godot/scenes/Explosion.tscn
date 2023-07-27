@@ -1,10 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://2spexirh7j33"]
+[gd_scene load_steps=12 format=3 uid="uid://2spexirh7j33"]
 
 [ext_resource type="Script" path="res://scripts/explosion.gd" id="1_57omf"]
-[ext_resource type="Texture2D" uid="uid://colim73363qfr" path="res://sprites/inimigos/explosion.png" id="2_tmflo"]
+[ext_resource type="Texture2D" uid="uid://c28jil8gd0hij" path="res://sprites/inimigos/explosão2.png" id="2_jjj4i"]
+[ext_resource type="Texture2D" uid="uid://cijkfjdgq03ku" path="res://sprites/inimigos/explosão1.png" id="3_gdl27"]
+[ext_resource type="Texture2D" uid="uid://bkm0w2vf7g1lp" path="res://sprites/inimigos/explosão3.png" id="4_c8phs"]
+[ext_resource type="Texture2D" uid="uid://ijxko8jpqm8h" path="res://sprites/inimigos/explosão4.png" id="5_3w0dr"]
+[ext_resource type="Texture2D" uid="uid://dk31it1m12pnw" path="res://sprites/inimigos/explosão5.png" id="6_qdv4l"]
+[ext_resource type="Texture2D" uid="uid://ic4lepbjd2g4" path="res://sprites/inimigos/explosão6.png" id="7_gomy0"]
+[ext_resource type="Texture2D" uid="uid://dxwel4ec3in3p" path="res://sprites/inimigos/explosão7.png" id="8_lgyjr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yisat"]
 size = Vector2(269, 246)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_esj1n"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jjj4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gdl27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c8phs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3w0dr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qdv4l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gomy0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lgyjr")
+}],
+"loop": false,
+"name": &"default",
+"speed": 13.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_snwug"]
 size = Vector2(270, 253)
@@ -19,9 +55,12 @@ script = ExtResource("1_57omf")
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_yisat")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.4)
-texture = ExtResource("2_tmflo")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.00001, -3.8147e-06)
+scale = Vector2(4.85714, 4.58182)
+sprite_frames = SubResource("SpriteFrames_esj1n")
+frame = 6
+frame_progress = 1.0
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -30,7 +69,7 @@ position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_snwug")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.5
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

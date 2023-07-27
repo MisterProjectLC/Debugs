@@ -10,7 +10,7 @@ size = Vector2(35, 32)
 size = Vector2(36, 32)
 
 [node name="bomb" type="RigidBody2D"]
-mass = 0.3
+mass = 0.01
 gravity_scale = 0.0
 script = ExtResource("1_seehw")
 
@@ -28,7 +28,6 @@ texture = ExtResource("1_wp6qx")
 shape = SubResource("RectangleShape2D_etxrb")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
