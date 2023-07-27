@@ -12,7 +12,15 @@ func _ready():
 		life = 10
 
 func _process(_delta):
-	pass
+	var posx = global_position.x - Global.player_position.x
+	if posx > 0 and posx < 1000 and global_position.x < 1820:
+		position.x += 2
+	if posx > 0 and posx > 1000 and global_position.x < 1820:
+		position.x -= 2
+	if posx < 0 and posx > -1000 and global_position.x > 100:
+		position.x -= 2
+	if posx < 0 and posx < -1000 and global_position.x > 100:
+		position.x += 2
 
 func _on_timer_timeout():
 	var bullet_instance = bullet.instantiate()
@@ -25,6 +33,8 @@ func _on_timer_timeout():
 func _on_area_2d_body_entered(body):
 	if "bulletPlayer" in body.name:
 		life -= Global.dmg
+	elif "enemyBullet" in body.name:
+		life -= 1
 	elif "enemyExplosion" in body.name:
 		life -= 5
 	if life <= 0:

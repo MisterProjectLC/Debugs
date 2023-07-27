@@ -92,7 +92,7 @@ func _on_area_2d_body_entered(body):
 	elif "sniper" in body.name:
 		Global.gun = "n"
 		Global.dmg = 10
-		Global.bullet_speed = 3000
+		Global.bullet_speed = 2000
 		Global.firetime = 1
 		$Timer.set_wait_time(Global.firetime)
 	elif "minigun" in body.name:

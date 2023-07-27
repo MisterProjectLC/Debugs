@@ -10,6 +10,7 @@ func _ready():
 		life = 13
 	elif Global.index >= 3:
 		life = 10
+	$Timer.set_wait_time(3)
 
 func _process(_delta):
 	var posx = global_position.x - Global.player_position.x
@@ -18,7 +19,7 @@ func _process(_delta):
 		position.x += 6
 	if posx < 0 and posx > -1000 and global_position.x > 100:
 		position.x -= 6
-	if posy > 0 and posy < 500 and global_position.y < 1040:
+	if posy > 0 and posy < 500 and global_position.y < 1060:
 		position.y += 6
 	if posy < 0 and posy > -500 and global_position.y > 70:
 		position.y -= 6

@@ -42,7 +42,7 @@ func _on_timer_timeout():
 			var bullet_direction = rotated_direction.normalized()
 			bullet_instance.global_position = global_position
 			get_parent().add_child(bullet_instance)
-			bullet_instance.apply_central_impulse(bullet_direction * 800)
+			bullet_instance.apply_central_impulse(bullet_direction * 1000)
 			bullet_instance.rotation_degrees = rad_to_deg(angle_to_player + angle_rad)
 	else:
 		for i in range(4):
@@ -57,24 +57,20 @@ func _on_timer_timeout():
 			bullet_instance.apply_central_impulse(direction * 800)
 
 
-func createSpawn():
-	var spawner_instance = spawn.instantiate()
-	spawner_instance.global_position = global_position
-	get_parent().add_child(spawner_instance)
-	spawner_instance.set_collision_mask(0)
-
 func _on_area_2d_body_entered(body):
 	if "bulletPlayer" in body.name:
 		life -= Global.dmg
-	if life <= 50:
+	if life <= 75:
 		Global.defense = 1
-		$Timer.set_wait_time(2)
+		$Timer.set_wait_time(1.5)
 		spawn = preload("res://scenes/enemySpawn_2.tscn")
 	if life <= 0:
 		Global.alive -= 1
 		queue_free()
 
 func _on_timer_2_timeout():
+	for i in range(2 - Global.defense):
 		var spawn_instance = spawn.instantiate()
-		spawn_instance.global_position = global_position
+		var direction = (Global.player_position - global_position).normalized()
+		spawn_instance.global_position = global_position + direction * 120
 		get_parent().add_child(spawn_instance)

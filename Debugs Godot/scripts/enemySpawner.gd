@@ -14,16 +14,14 @@ func _ready():
 func _process(_delta):
 	var posx = global_position.x - Global.player_position.x
 	var posy = global_position.y - Global.player_position.y
-	if posx > 0 and posx < 700:
-		position.x += 2
-	if posx < 0 and posx > -700:
-		position.x -= 2
-	if posy > 0 and posy < 350:
-		position.y += 2
-	if posy < 0 and posy > -350:
-		position.y -= 2
-
-	
+	if posx > 0 and posx < 700 and global_position.x < 1820:
+		position.x += 3
+	if posx < 0 and posx > -700 and global_position.x > 100:
+		position.x -= 3
+	if posy > 0 and posy < 350 and global_position.y < 1060:
+		position.y += 3
+	if posy < 0 and posy > -350 and global_position.y > 70:
+		position.y -= 3
 
 func _on_area_2d_body_entered(body):
 	if "player" in body.name and Global.upgrades[3] == 1:
@@ -45,14 +43,13 @@ func _on_area_2d_body_entered(body):
 
 func _on_timer_timeout():
 	var mark = randi_range(1,5)
+	var spawn_instance
 	match mark:
 		1,2,3,4: 	
-			var spawn_instance = spawn1.instantiate()
-			spawn_instance.global_position = global_position
-			get_parent().add_child(spawn_instance)
-			spawn_instance.rotation_degrees = rotation_degrees
+			spawn_instance = spawn1.instantiate()
 		5:
-			var spawn_instance = spawn2.instantiate()
-			spawn_instance.global_position = global_position
-			get_parent().add_child(spawn_instance)
-			spawn_instance.rotation_degrees = rotation_degrees
+			spawn_instance = spawn2.instantiate()
+	var direction = (Global.player_position - global_position).normalized()
+	spawn_instance.global_position = global_position + direction * 85
+	get_parent().add_child(spawn_instance)
+	spawn_instance.rotation_degrees = rotation_degrees

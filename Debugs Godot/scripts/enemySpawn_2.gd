@@ -1,14 +1,14 @@
 extends RigidBody2D
-var life = 3
+var life = 2
 var bullet = preload("res://scenes/BulletEnemy.tscn")
 
 func _ready():
 	if Global.index >= 9:
-		life = 6
-	elif Global.index >= 6:
 		life = 5
-	elif Global.index >= 3:
+	elif Global.index >= 6:
 		life = 4
+	elif Global.index >= 3:
+		life = 3
 	
 func _process(_delta):
 	position += (Global.player_position - position) / 60
