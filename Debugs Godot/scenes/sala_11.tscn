@@ -42,16 +42,13 @@ position = Vector2(1935, 540)
 
 [node name="enemyBomba" parent="." instance=ExtResource("6_14k1r")]
 position = Vector2(1837, 1046)
-collision_mask = 1
 
 [node name="enemyBomba3" parent="." instance=ExtResource("6_14k1r")]
 position = Vector2(1842, 39)
-collision_mask = 1
 script = ExtResource("8_bdbca")
 
 [node name="enemyBomba4" parent="." instance=ExtResource("6_14k1r")]
 position = Vector2(79, 36)
-collision_mask = 1
 script = ExtResource("9_cw5yj")
 
 [node name="enemyBomba2" parent="." instance=ExtResource("6_14k1r")]
