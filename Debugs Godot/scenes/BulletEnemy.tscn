@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://qybdvpb2acw" path="res://sprites/inimigos/tiroInimigo.PNG" id="1_xpaku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffw63"]
-size = Vector2(36, 12)
+size = Vector2(36, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iw10r"]
-size = Vector2(36, 12)
+size = Vector2(36, 10)
 
 [node name="enemyBullet" type="RigidBody2D" groups=["enemy", "f_fire"]]
 collision_mask = 0
@@ -27,7 +27,7 @@ texture = ExtResource("1_xpaku")
 shape = SubResource("RectangleShape2D_iw10r")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(7.15256e-07, 2.38419e-07)
+position = Vector2(7.15256e-07, -2.38418e-07)
 scale = Vector2(1.8, 0.5)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered" flags=18]

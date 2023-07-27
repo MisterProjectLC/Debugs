@@ -27,7 +27,7 @@ script = ExtResource("1_o880b")
 
 [node name="player" parent="." instance=ExtResource("2_w07ic")]
 top_level = true
-position = Vector2(51, 537)
+position = Vector2(102, 534)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_y4e3n")
@@ -41,16 +41,19 @@ position = Vector2(-15, 540)
 position = Vector2(1935, 540)
 
 [node name="enemyBomba" parent="." instance=ExtResource("6_14k1r")]
-position = Vector2(1805, 1025)
-
-[node name="enemyBomba2" parent="." instance=ExtResource("6_14k1r")]
-position = Vector2(148, 1002)
-script = ExtResource("7_cf1ap")
+position = Vector2(1837, 1046)
+collision_mask = 1
 
 [node name="enemyBomba3" parent="." instance=ExtResource("6_14k1r")]
-position = Vector2(1791, 68)
+position = Vector2(1842, 39)
+collision_mask = 1
 script = ExtResource("8_bdbca")
 
 [node name="enemyBomba4" parent="." instance=ExtResource("6_14k1r")]
-position = Vector2(100, 66)
+position = Vector2(79, 36)
+collision_mask = 1
 script = ExtResource("9_cw5yj")
+
+[node name="enemyBomba2" parent="." instance=ExtResource("6_14k1r")]
+position = Vector2(85, 1041)
+script = ExtResource("7_cf1ap")

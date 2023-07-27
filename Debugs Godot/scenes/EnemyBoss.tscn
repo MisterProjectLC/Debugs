@@ -19,7 +19,7 @@ size = Vector2(88.8493, 31.3588)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5q0s"]
 size = Vector2(73, 33)
 
-[node name="enemyBoss" type="RigidBody2D" groups=["enemy"]]
+[node name="enemyBoss" type="RigidBody2D" groups=["enemy", "f_fire"]]
 collision_mask = 0
 mass = 1000.0
 gravity_scale = 0.0

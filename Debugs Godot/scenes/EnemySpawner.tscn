@@ -9,7 +9,7 @@ size = Vector2(173, 76)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgos7"]
 size = Vector2(173, 76)
 
-[node name="enemySpawner" type="RigidBody2D" groups=["enemy"]]
+[node name="enemySpawner" type="RigidBody2D" groups=["enemy", "f_fire"]]
 position = Vector2(200, 200)
 mass = 1000.0
 gravity_scale = 0.0
