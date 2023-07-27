@@ -26,9 +26,11 @@ func _process(_delta):
 
 func _on_timer_timeout():
 	var bullet_instance = bullet.instantiate()
-	bullet_instance.global_position = Global.player_position
+	var direction = (Global.player_position - global_position).normalized()
+	bullet_instance.global_position = global_position + direction
 	get_parent().add_child(bullet_instance)
 	bullet_instance.rotation_degrees = rotation_degrees
+	bullet_instance.apply_central_impulse(direction * 900)
 
 func _on_area_2d_body_entered(body):
 	if "bulletPlayer" in body.name:
