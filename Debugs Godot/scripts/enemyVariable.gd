@@ -20,9 +20,9 @@ func _on_area_2d_body_entered(body):
 		queue_free()
 	if "bulletPlayer" in body.name:
 		life -= Global.dmg
-	elif "enemyBullet" in body.name:
+	if "enemyBullet" in body.name:
 		life -= 1
-	elif "enemyExplosion" in body.name:
+	if "enemyExplosion" in body.name:
 		life -= 5
 	if life <= 0:
 		Global.alive -= 1

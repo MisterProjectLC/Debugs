@@ -4,6 +4,7 @@ var defense = 0
 var dmg = 2
 var alive = 0
 var index = 0
+var mark = 0 
 var gun = "p"
 var firetime = 0.33
 var upgrades = [0,0,0,0]
