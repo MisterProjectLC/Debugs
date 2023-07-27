@@ -7,7 +7,6 @@
 size = Vector2(148.5, 71.25)
 
 [node name="enemyToken" type="RigidBody2D" groups=["enemy", "f_fire"]]
-collision_mask = 0
 mass = 1000.0
 gravity_scale = 0.0
 can_sleep = false
