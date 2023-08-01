@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://d3o4hokfl01gr" path="res://scenes/player.tscn" id="1_xgdxy"]
 [ext_resource type="Texture2D" uid="uid://das41b004xwao" path="res://tilemaps/floor.png" id="2_is42s"]
-[ext_resource type="PackedScene" path="res://scenes/portaE.tscn" id="3_dvhtf"]
-[ext_resource type="PackedScene" path="res://scenes/portaS.tscn" id="4_t7tqn"]
+[ext_resource type="PackedScene" uid="uid://bxpmmffr5afbw" path="res://scenes/portaE.tscn" id="3_dvhtf"]
+[ext_resource type="PackedScene" uid="uid://0qgn7w5jan8t" path="res://scenes/portaS.tscn" id="4_t7tqn"]
 [ext_resource type="PackedScene" uid="uid://dwj7ktx2cvnyd" path="res://scenes/minigun.tscn" id="5_hh4en"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5757"]
@@ -37,3 +37,7 @@ position = Vector2(1935, 540)
 
 [node name="minigun" parent="." instance=ExtResource("5_hh4en")]
 position = Vector2(960, 540)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(962, 547)
+zoom = Vector2(0.98, 0.95)

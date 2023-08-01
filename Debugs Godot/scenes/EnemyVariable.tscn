@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmmha3a2v24fh"]
 
 [ext_resource type="Script" path="res://scripts/enemyVariable.gd" id="1_k2k1w"]
-[ext_resource type="Texture2D" uid="uid://c2dnobe7sjs8g" path="res://sprites/inimigos/inimigo - unused.png" id="2_rt1gv"]
+[ext_resource type="Texture2D" uid="uid://da35hgg3l14fy" path="res://sprites/inimigos/inimigo - 1.png" id="2_kktop"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0goyt"]
 size = Vector2(174, 75)
@@ -20,9 +20,9 @@ position = Vector2(4, -25.5)
 shape = SubResource("RectangleShape2D_0goyt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3, -26)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("2_rt1gv")
+position = Vector2(4, -25)
+scale = Vector2(0.127407, 0.120827)
+texture = ExtResource("2_kktop")
 
 [node name="Area2D" type="Area2D" parent="."]
 

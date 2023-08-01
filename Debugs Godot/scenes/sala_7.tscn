@@ -45,3 +45,7 @@ position = Vector2(600, 600)
 
 [node name="enemySpawner3" parent="." instance=ExtResource("6_nvau2")]
 position = Vector2(600, 300)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(962, 547)
+zoom = Vector2(0.98, 0.95)

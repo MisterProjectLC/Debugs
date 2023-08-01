@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://d3o4hokfl01gr" path="res://scenes/player.tscn" id="1_ih5ym"]
 [ext_resource type="Texture2D" uid="uid://das41b004xwao" path="res://tilemaps/floor.png" id="2_5my2x"]
-[ext_resource type="PackedScene" path="res://scenes/portaE.tscn" id="3_n1sy6"]
-[ext_resource type="PackedScene" path="res://scenes/portaS.tscn" id="4_nbnv4"]
+[ext_resource type="PackedScene" uid="uid://bxpmmffr5afbw" path="res://scenes/portaE.tscn" id="3_n1sy6"]
+[ext_resource type="PackedScene" uid="uid://0qgn7w5jan8t" path="res://scenes/portaS.tscn" id="4_nbnv4"]
 [ext_resource type="PackedScene" uid="uid://gmyt10k15mt7" path="res://scenes/bt.tscn" id="5_o2urv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5757"]
@@ -37,3 +37,7 @@ position = Vector2(1935, 540)
 
 [node name="BT" parent="." instance=ExtResource("5_o2urv")]
 position = Vector2(960, 540)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(962, 547)
+zoom = Vector2(0.98, 0.95)

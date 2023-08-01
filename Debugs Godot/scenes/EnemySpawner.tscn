@@ -1,33 +1,34 @@
 [gd_scene load_steps=5 format=3 uid="uid://d2htwvgulpvxm"]
 
 [ext_resource type="Script" path="res://scripts/enemySpawner.gd" id="1_l2jr8"]
-[ext_resource type="Texture2D" uid="uid://w017indfnwe6" path="res://sprites/inimigos/inimigo - spawner.png" id="2_j2vyy"]
+[ext_resource type="Texture2D" uid="uid://3sqgiy41lf3s" path="res://sprites/inimigos/inimigo - 3.png" id="2_tbstq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0goyt"]
-size = Vector2(173, 76)
+size = Vector2(186, 83)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgos7"]
-size = Vector2(173, 76)
+size = Vector2(189, 82)
 
 [node name="enemySpawner" type="RigidBody2D" groups=["enemy", "f_fire"]]
 position = Vector2(200, 200)
 mass = 1000.0
 gravity_scale = 0.0
+can_sleep = false
 script = ExtResource("1_l2jr8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.5, -26)
+position = Vector2(3, -25.5)
 shape = SubResource("RectangleShape2D_0goyt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3.49999, -25.5)
-scale = Vector2(0.128148, 0.119237)
-texture = ExtResource("2_j2vyy")
+scale = Vector2(0.14, 0.13)
+texture = ExtResource("2_tbstq")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(3.5, -26)
+position = Vector2(2.5, -26)
 shape = SubResource("RectangleShape2D_kgos7")
 
 [node name="Timer" type="Timer" parent="."]

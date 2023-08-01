@@ -54,3 +54,7 @@ script = ExtResource("9_cw5yj")
 [node name="enemyBomba2" parent="." instance=ExtResource("6_14k1r")]
 position = Vector2(85, 1041)
 script = ExtResource("7_cf1ap")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(962, 547)
+zoom = Vector2(0.98, 0.95)

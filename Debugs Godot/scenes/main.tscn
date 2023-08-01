@@ -55,3 +55,7 @@ layer_1/tile_data = PackedInt32Array(983100, 0, 0, 1048636, 0, 0, 1179708, 0, 0,
 
 [node name="portaSaida" parent="." groups=["porta"] instance=ExtResource("7_prf8b")]
 position = Vector2(1935, 540)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(962, 547)
+zoom = Vector2(0.98, 0.95)

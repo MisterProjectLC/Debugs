@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxf4o04olnk1t"]
 
-[ext_resource type="Texture2D" uid="uid://bltotf4hh0u6e" path="res://sprites/inimigos/inimigo - bomba.png" id="1_lv3ur"]
 [ext_resource type="Script" path="res://scripts/EnemyBomb.gd" id="1_x5r4l"]
+[ext_resource type="Texture2D" uid="uid://b47qv1y8w7xex" path="res://sprites/inimigos/inimigo - 4.png" id="2_htrxc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mwrc8"]
 size = Vector2(156, 72.5)
@@ -15,7 +15,7 @@ script = ExtResource("1_x5r4l")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.500003, 1)
 scale = Vector2(0.114815, 0.114467)
-texture = ExtResource("1_lv3ur")
+texture = ExtResource("2_htrxc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mwrc8")

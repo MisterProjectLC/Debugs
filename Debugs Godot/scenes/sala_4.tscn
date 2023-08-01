@@ -39,10 +39,14 @@ position = Vector2(-15, 540)
 position = Vector2(1935, 540)
 
 [node name="enemyToken" parent="." instance=ExtResource("6_r0yhf")]
-position = Vector2(1100, 850)
+position = Vector2(993, 858)
 
 [node name="enemyToken2" parent="." instance=ExtResource("6_r0yhf")]
-position = Vector2(1100, 300)
+position = Vector2(983, 300)
 
 [node name="enemyBomba" parent="." instance=ExtResource("7_60jkg")]
-position = Vector2(848, 551)
+position = Vector2(1305, 564)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(962, 547)
+zoom = Vector2(0.98, 0.95)

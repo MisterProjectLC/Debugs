@@ -44,3 +44,7 @@ position = Vector2(-15, 540)
 
 [node name="portaSaida" parent="." instance=ExtResource("6_mbj3k")]
 position = Vector2(1935, 540)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(962, 547)
+zoom = Vector2(0.98, 0.95)

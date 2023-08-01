@@ -46,3 +46,7 @@ position = Vector2(771, 180)
 
 [node name="enemyBomba" parent="." instance=ExtResource("7_eh1a1")]
 position = Vector2(1273, 498)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(962, 547)
+zoom = Vector2(0.98, 0.95)

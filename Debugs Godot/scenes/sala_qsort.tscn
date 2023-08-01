@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://d3o4hokfl01gr" path="res://scenes/player.tscn" id="1_msit4"]
 [ext_resource type="Texture2D" uid="uid://das41b004xwao" path="res://tilemaps/floor.png" id="2_gldaf"]
-[ext_resource type="PackedScene" path="res://scenes/portaE.tscn" id="3_53x4e"]
-[ext_resource type="PackedScene" path="res://scenes/portaS.tscn" id="4_xj7d7"]
-[ext_resource type="PackedScene" path="res://scenes/qsort.tscn" id="5_0cbcw"]
+[ext_resource type="PackedScene" uid="uid://bxpmmffr5afbw" path="res://scenes/portaE.tscn" id="3_53x4e"]
+[ext_resource type="PackedScene" uid="uid://0qgn7w5jan8t" path="res://scenes/portaS.tscn" id="4_xj7d7"]
+[ext_resource type="PackedScene" uid="uid://7qa50jnjru8o" path="res://scenes/qsort.tscn" id="5_0cbcw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5757"]
 texture = ExtResource("2_gldaf")
@@ -37,3 +37,7 @@ position = Vector2(1935, 540)
 
 [node name="qsort" parent="." instance=ExtResource("5_0cbcw")]
 position = Vector2(960, 540)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(962, 547)
+zoom = Vector2(0.98, 0.95)

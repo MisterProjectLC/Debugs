@@ -51,3 +51,7 @@ position = Vector2(1384, 947)
 
 [node name="enemyToken2" parent="." instance=ExtResource("7_udfec")]
 position = Vector2(860, 186)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(962, 547)
+zoom = Vector2(0.98, 0.95)
