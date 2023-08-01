@@ -82,13 +82,14 @@ func _on_area_2d_body_entered(body):
 		if Global.upgrades[3] == 1:
 			Global.upgrades[3] = 0
 		else: 
+			get_tree().queue_delete(self)
 			get_tree().change_scene_to_file("res://scenes/kill.tscn")
 	if "shotgun" in body.name:
 		Global.gun = "s"
 		Global.firetime = 0.75
 		$Timer.set_wait_time(Global.firetime)
 		Global.dmg = 3
-		Global.bullet_speed = 2000
+		Global.bullet_speed = 1500
 	elif "sniper" in body.name:
 		Global.gun = "n"
 		Global.dmg = 10
@@ -102,7 +103,7 @@ func _on_area_2d_body_entered(body):
 	if "BB" in body.name:
 		speed = 600
 		Global.upgrades[0] = 1
-	if "BT" in body.name or Global.upgrades[1] == 1:
+	if "BT" in body.name:
 		Global.upgrades[1] = 1
 		match Global.gun:
 			"p": Global.dmg = 3
@@ -114,7 +115,7 @@ func _on_area_2d_body_entered(body):
 			"s": Global.change_gun[2] = 4
 			"m": Global.change_gun[2] = 3
 			"n": Global.change_gun[2] = 15
-	if "qsort" in body.name or Global.upgrades[2] == 1:
+	if "qsort" in body.name:
 		Global.upgrades[2] = 1
 		match Global.gun:
 			"p": Global.firetime = 0.25

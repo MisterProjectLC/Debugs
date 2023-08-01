@@ -28,8 +28,8 @@ func _on_area_2d_body_entered(body):
 				match Global.mark:
 					1: get_tree().change_scene_to_file("res://scenes/sala_bb.tscn")
 					2: get_tree().change_scene_to_file("res://scenes/sala_bt.tscn")
-					3: get_tree().change_scene_to_file("res://scenes/sala_debbuger.tscn")
-					4: get_tree().change_scene_to_file("res://scenes/sala_qsort.tscn")
+					3: get_tree().change_scene_to_file("res://scenes/sala_qsort.tscn")
+					4: get_tree().change_scene_to_file("res://scenes/sala_debbuger.tscn")
 			4:
 				Global.mark = randi_range(1,3)
 				match Global.mark:
@@ -68,13 +68,16 @@ func _on_area_2d_body_entered(body):
 					3: get_tree().change_scene_to_file("res://scenes/sala_9.tscn")
 			9:
 				Global.mark = randi_range(1,4)
-				while Global.upgrades[Global.mark - 1] == 1:
-					Global.mark = randi_range(1,4)
+				if Global.upgrades[Global.mark - 1] == 1:
+					if Global.mark == 4:
+						Global.mark -= 1
+					else:
+						Global.mark += 1
 				match Global.mark:
 					1: get_tree().change_scene_to_file("res://scenes/sala_bb.tscn")
 					2: get_tree().change_scene_to_file("res://scenes/sala_bt.tscn")
-					3: get_tree().change_scene_to_file("res://scenes/sala_debbuger.tscn")
-					4: get_tree().change_scene_to_file("res://scenes/sala_qsort.tscn")
+					3: get_tree().change_scene_to_file("res://scenes/sala_qsort.tscn")
+					4: get_tree().change_scene_to_file("res://scenes/sala_debbuger.tscn")
 			10:
 				Global.mark = randi_range(1,3)
 				match Global.mark:

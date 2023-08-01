@@ -33,6 +33,9 @@ func _on_timer_timeout():
 	bullet_instance.apply_central_impulse(direction * 900)
 
 func _on_area_2d_body_entered(body):
+	if "player" in body.name and Global.upgrades[3] == 1:
+		Global.alive -= 1
+		queue_free()
 	if "bulletPlayer" in body.name:
 		life -= Global.dmg
 	elif "enemyBullet" in body.name:

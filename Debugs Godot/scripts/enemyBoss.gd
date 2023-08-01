@@ -71,5 +71,5 @@ func _on_timer_2_timeout():
 	for i in range(2 - Global.defense):
 		var spawn_instance = spawn.instantiate()
 		var direction = (Global.player_position - global_position).normalized()
-		spawn_instance.global_position = global_position + direction * 120
+		spawn_instance.global_position = global_position + direction * 150
 		get_parent().add_child(spawn_instance)
