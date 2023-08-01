@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crpu5h2quj5go"
-path="res://.godot/imported/spawn 1.png-d00b79c494a6761f868b4eea4accb463.ctex"
+uid="uid://colj7qqogh7mo"
+path="res://.godot/imported/inimigo - 3 - spawn2.png-2af758b965e1eea9e7ab055ce6386365.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/inimigos/spawn 1.png"
-dest_files=["res://.godot/imported/spawn 1.png-d00b79c494a6761f868b4eea4accb463.ctex"]
+source_file="res://sprites/inimigos/inimigo - 3 - spawn2.png"
+dest_files=["res://.godot/imported/inimigo - 3 - spawn2.png-2af758b965e1eea9e7ab055ce6386365.ctex"]
 
 [params]
 
