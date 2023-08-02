@@ -29,7 +29,6 @@ zoom = Vector2(0.98, 0.95)
 [node name="TileMap" type="TileMap" parent="."]
 z_as_relative = false
 tile_set = ExtResource("5_4qh5a")
-collision_visibility_mode = 1
 format = 2
 layer_0/name = "wall"
 layer_0/modulate = Color(0.827451, 1, 1, 1)

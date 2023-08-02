@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dub6gya8jfb5o"]
+[gd_scene load_steps=8 format=3 uid="uid://dub6gya8jfb5o"]
 
 [ext_resource type="Script" path="res://scripts/sala_2.gd" id="1_l2xt0"]
 [ext_resource type="PackedScene" uid="uid://dnu48lumhi8ok" path="res://scenes/EnemyToken.tscn" id="2_b50np"]
 [ext_resource type="PackedScene" uid="uid://d3o4hokfl01gr" path="res://scenes/player.tscn" id="3_gqdse"]
 [ext_resource type="PackedScene" uid="uid://bxpmmffr5afbw" path="res://scenes/portaE.tscn" id="5_pdj10"]
+[ext_resource type="Script" path="res://scripts/Camera2D.gd" id="6_1ohyw"]
 [ext_resource type="TileSet" uid="uid://bcwkh0i46138d" path="res://tilemaps/floor.tres" id="6_5xesp"]
 [ext_resource type="PackedScene" uid="uid://0qgn7w5jan8t" path="res://scenes/portaS.tscn" id="6_mbj3k"]
 
@@ -32,11 +33,11 @@ position = Vector2(1935, 540)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(962, 547)
 zoom = Vector2(0.98, 0.95)
+script = ExtResource("6_1ohyw")
 
 [node name="TileMap" type="TileMap" parent="."]
 z_as_relative = false
 tile_set = ExtResource("6_5xesp")
-collision_visibility_mode = 1
 format = 2
 layer_0/name = "wall"
 layer_0/modulate = Color(0.827451, 1, 1, 1)

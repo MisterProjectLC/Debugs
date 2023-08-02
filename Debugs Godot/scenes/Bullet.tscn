@@ -23,6 +23,7 @@ texture = ExtResource("1_2co75")
 shape = SubResource("RectangleShape2D_dfunw")
 
 [node name="Area2D" type="Area2D" parent="."]
+input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(0.8, 0.8)

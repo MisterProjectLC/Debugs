@@ -1,7 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnu48lumhi8ok"]
+[gd_scene load_steps=6 format=3 uid="uid://dnu48lumhi8ok"]
 
 [ext_resource type="Texture2D" uid="uid://cu1u2yumqf3nb" path="res://sprites/inimigos/inimigo - 2.png" id="2_amvsu"]
+[ext_resource type="Texture2D" uid="uid://de28iuei0b4xe" path="res://sprites/inimigos/damaged.png" id="2_l1hlg"]
 [ext_resource type="Script" path="res://scripts/enemyToken.gd" id="2_ra8iy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cbt61"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_l1hlg")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_amvsu")
+}],
+"loop": false,
+"name": &"normal",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mwrc8"]
 size = Vector2(175, 86)
@@ -12,10 +32,13 @@ gravity_scale = 0.0
 can_sleep = false
 script = ExtResource("2_ra8iy")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1, 0.996078, 1, 1)
 position = Vector2(2.98023e-06, 0)
 scale = Vector2(0.13, 0.136)
-texture = ExtResource("2_amvsu")
+sprite_frames = SubResource("SpriteFrames_cbt61")
+animation = &"normal"
+autoplay = "normal"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
