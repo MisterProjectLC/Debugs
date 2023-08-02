@@ -1,7 +1,7 @@
 extends RigidBody2D
 var life = 200
 var bullet = preload("res://scenes/enemyBossBullet.tscn")
-var spawn = preload("res://scenes/enemySpaw_1.tscn")
+var spawn = preload("res://scenes/enemySpawn_1.tscn")
 
 func _ready():
 	Global.defense = 0

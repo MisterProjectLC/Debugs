@@ -11,7 +11,7 @@ func _ready():
 	
 func _process(delta):
 	Global.player_position = self.global_position
-	var velocity = Vector2.ZERO 
+	var velocity = Vector2()
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
@@ -34,11 +34,7 @@ func _process(delta):
 		Global.change_gun[2] = aux[2]
 		Global.change_gun[3] = aux[3]
 		
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-		$AnimatedSprite2D.play()
-	else:
-		$AnimatedSprite2D.stop()
+	move_and_collide(velocity.normalized() * speed * delta)
 	
 	position += velocity * delta
 	position.x = clamp(position.x, 0, screen_size.x)

@@ -1,6 +1,6 @@
 extends RigidBody2D
 var life = 8
-var spawn1 = preload("res://scenes/enemySpaw_1.tscn")
+var spawn1 = preload("res://scenes/enemySpawn_1.tscn")
 var spawn2 = preload("res://scenes/enemySpawn_2.tscn")
 
 func _ready():
