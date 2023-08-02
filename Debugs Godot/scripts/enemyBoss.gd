@@ -62,14 +62,14 @@ func _on_area_2d_body_entered(body):
 	if life <= 75:
 		Global.defense = 1
 		$Timer.set_wait_time(1.5)
-		spawn = preload("res://scenes/enemySpawn_2.tscn")
 	if life <= 0:
 		Global.alive -= 1
 		queue_free()
 
 func _on_timer_2_timeout():
-	for i in range(2 - Global.defense):
-		var spawn_instance = spawn.instantiate()
-		var direction = (Global.player_position - global_position).normalized()
-		spawn_instance.global_position = global_position + direction * 150
-		get_parent().add_child(spawn_instance)
+	if Global.defense == 0:
+		for i in range(2 - Global.defense):
+			var spawn_instance = spawn.instantiate()
+			var direction = (Global.player_position - global_position).normalized()
+			spawn_instance.global_position = global_position + direction * 150
+			get_parent().add_child(spawn_instance)

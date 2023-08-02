@@ -15,16 +15,7 @@ func _ready():
 func _process(_delta):
 	if can_fire:
 		$Timer.set_wait_time(2.5)
-	var posx = global_position.x - Global.player_position.x
-	var posy = global_position.y - Global.player_position.y
-	if posx > 0 and posx < 1000 and global_position.x < 1820:
-		position.x += 6
-	if posx < 0 and posx > -1000 and global_position.x > 100:
-		position.x -= 6
-	if posy > 0 and posy < 500 and global_position.y < 1060:
-		position.y += 6
-	if posy < 0 and posy > -500 and global_position.y > 70:
-		position.y -= 6
+
 
 
 func _on_timer_timeout():

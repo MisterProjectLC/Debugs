@@ -17,7 +17,6 @@ func _process(_delta):
 
 func _on_area_2d_body_entered(body):
 	if "player" in body.name and Global.upgrades[3] == 1:
-		Global.alive -= 1
 		queue_free()
 	if "bulletPlayer" in body.name:
 		life -= Global.dmg
@@ -26,7 +25,6 @@ func _on_area_2d_body_entered(body):
 	elif "enemyExplosion" in body.name:
 		life -= 5
 	if life <= 0:
-		Global.alive -= 1
 		call_deferred("fire")
 		queue_free()
 		

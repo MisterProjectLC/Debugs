@@ -1,5 +1,6 @@
 extends Node
 @onready var player_position 
+var explosion = 0
 var defense = 0
 var dmg = 2
 var alive = 0
