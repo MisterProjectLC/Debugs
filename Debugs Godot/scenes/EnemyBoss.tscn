@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://ci281c7brvhlc"]
 
 [ext_resource type="Script" path="res://scripts/enemyBoss.gd" id="1_qb122"]
-[ext_resource type="Texture2D" uid="uid://g07050p8xldb" path="res://sprites/inimigos/inimigo - boss.png" id="2_t6xce"]
+[ext_resource type="Texture2D" uid="uid://cv6yp536unw6s" path="res://sprites/inimigos/inimigo - boss.png" id="2_t6xce"]
 [ext_resource type="PackedScene" uid="uid://cwsoegc77ofm" path="res://scenes/BossDefense.tscn" id="3_sewhv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gge2o"]
