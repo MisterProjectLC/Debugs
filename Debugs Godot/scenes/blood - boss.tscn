@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cose0nbsq7083"]
+
+[ext_resource type="Texture2D" uid="uid://b6ig5jymrr5hs" path="res://sprites/inimigos/blood.png" id="1_4vp3f"]
+[ext_resource type="Script" path="res://scripts/blood.gd" id="2_rq6lw"]
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+amount = 60
+lifetime = 0.2
+explosiveness = 1.0
+randomness = 1.0
+texture = ExtResource("1_4vp3f")
+spread = 80.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 1000.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+color = Color(0, 0, 0, 0.709804)
+script = ExtResource("2_rq6lw")
+
+[node name="freeze" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="freeze" to="." method="_on_freeze_timeout" flags=18]

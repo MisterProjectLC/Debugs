@@ -1,8 +1,28 @@
-[gd_scene load_steps=9 format=3 uid="uid://ci281c7brvhlc"]
+[gd_scene load_steps=11 format=3 uid="uid://ci281c7brvhlc"]
 
 [ext_resource type="Script" path="res://scripts/enemyBoss.gd" id="1_qb122"]
+[ext_resource type="Texture2D" uid="uid://573d1slf6ll4" path="res://sprites/inimigos/inimigo - boss - damaged.png" id="2_qa77n"]
 [ext_resource type="Texture2D" uid="uid://cv6yp536unw6s" path="res://sprites/inimigos/inimigo - boss.png" id="2_t6xce"]
 [ext_resource type="PackedScene" uid="uid://cwsoegc77ofm" path="res://scenes/BossDefense.tscn" id="3_sewhv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4l2dq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qa77n")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_t6xce")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gge2o"]
 size = Vector2(91.9239, 31.1127)
@@ -26,9 +46,11 @@ gravity_scale = 0.0
 can_sleep = false
 script = ExtResource("1_qb122")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_t6xce")
+sprite_frames = SubResource("SpriteFrames_4l2dq")
+animation = &"damage"
+autoplay = "normal"
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, 1)
