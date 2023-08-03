@@ -1,6 +1,7 @@
 extends RigidBody2D
 var life = 2
 var bullet = preload("res://scenes/BulletEnemy.tscn")
+var blood = preload("res://scenes/blood - spawns.tscn")
 
 func _ready():
 	if Global.index >= 9:
@@ -38,6 +39,10 @@ func fire():
 	get_parent().add_child(bullet_instance)
 	bullet_instance.rotation_degrees = rotation_degrees
 	bullet_instance.apply_central_impulse(direction * 1100)
+	var blood_instance = blood.instantiate()
+	blood_instance.global_position = global_position
+	blood_instance.rotation = (direction * -1).angle() 
+	get_parent().add_child(blood_instance)
 
 
 func _on_timer_timeout():

@@ -2,6 +2,7 @@ extends RigidBody2D
 var life = 7
 @export var spawn_distance = 85
 var bullet = preload("res://scenes/BulletEnemy.tscn")
+var blood = preload("res://scenes/blood.tscn")
 
 func _ready():
 	if Global.index >= 9:
@@ -43,6 +44,11 @@ func _on_area_2d_body_entered(body):
 		call_deferred("damaged")
 	if life <= 0:
 		Global.alive -= 1
+		var blood_instance = blood.instantiate()
+		blood_instance.global_position = global_position
+		var direction = (Global.player_position - global_position).normalized()
+		blood_instance.rotation = (direction * -1).angle() 
+		get_parent().add_child(blood_instance)
 		queue_free()
 
 func damaged():

@@ -88,7 +88,7 @@ func _on_area_2d_body_entered(body):
 		Global.bullet_speed = 1500
 	elif "sniper" in body.name:
 		Global.gun = "n"
-		Global.dmg = 10
+		Global.dmg = 12
 		Global.bullet_speed = 2000
 		Global.firetime = 1
 		$Timer.set_wait_time(Global.firetime)
@@ -105,7 +105,7 @@ func _on_area_2d_body_entered(body):
 			"p": Global.dmg = 3
 			"s": Global.dmg = 4
 			"m": Global.dmg = 3
-			"n": Global.dmg = 15
+			"n": Global.dmg = 18
 		match  Global.change_gun[0]:
 			"p": Global.change_gun[2] = 3
 			"s": Global.change_gun[2] = 4
