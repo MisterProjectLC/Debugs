@@ -1,7 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxf4o04olnk1t"]
+[gd_scene load_steps=6 format=3 uid="uid://cxf4o04olnk1t"]
 
 [ext_resource type="Script" path="res://scripts/EnemyBomb.gd" id="1_x5r4l"]
 [ext_resource type="Texture2D" uid="uid://b47qv1y8w7xex" path="res://sprites/inimigos/inimigo - 4.png" id="2_htrxc"]
+[ext_resource type="Texture2D" uid="uid://de28iuei0b4xe" path="res://sprites/inimigos/damaged.png" id="2_omne2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w55pk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_omne2")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_htrxc")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mwrc8"]
 size = Vector2(156, 72.5)
@@ -12,10 +32,12 @@ gravity_scale = 0.0
 can_sleep = false
 script = ExtResource("1_x5r4l")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.500003, 1)
 scale = Vector2(0.114815, 0.114467)
-texture = ExtResource("2_htrxc")
+sprite_frames = SubResource("SpriteFrames_w55pk")
+animation = &"damage"
+autoplay = "normal"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mwrc8")
@@ -30,5 +52,9 @@ shape = SubResource("RectangleShape2D_mwrc8")
 wait_time = 2.5
 autostart = true
 
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.05
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered" flags=18]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout" flags=18]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

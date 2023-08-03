@@ -1,13 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmmha3a2v24fh"]
+[gd_scene load_steps=7 format=3 uid="uid://cmmha3a2v24fh"]
 
 [ext_resource type="Script" path="res://scripts/enemyVariable.gd" id="1_k2k1w"]
+[ext_resource type="Texture2D" uid="uid://de28iuei0b4xe" path="res://sprites/inimigos/damaged.png" id="2_2xqgj"]
 [ext_resource type="Texture2D" uid="uid://da35hgg3l14fy" path="res://sprites/inimigos/inimigo - 1.png" id="2_kktop"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0goyt"]
-size = Vector2(174, 75)
+size = Vector2(173, 76)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ccegq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2xqgj")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kktop")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgos7"]
-size = Vector2(172, 74)
+size = Vector2(174, 78)
 
 [node name="enemyVariable" type="RigidBody2D" groups=["enemy", "f_fire"]]
 position = Vector2(200, 200)
@@ -16,18 +36,24 @@ gravity_scale = 0.0
 script = ExtResource("1_k2k1w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, -25.5)
+position = Vector2(4.5, -25)
 shape = SubResource("RectangleShape2D_0goyt")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4, -25)
 scale = Vector2(0.127407, 0.120827)
-texture = ExtResource("2_kktop")
+sprite_frames = SubResource("SpriteFrames_ccegq")
+animation = &"normal"
+autoplay = "normal"
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(4, -26)
+position = Vector2(4, -25)
 shape = SubResource("RectangleShape2D_kgos7")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

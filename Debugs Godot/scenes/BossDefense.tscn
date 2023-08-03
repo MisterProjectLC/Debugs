@@ -1,13 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwsoegc77ofm"]
+[gd_scene load_steps=7 format=3 uid="uid://cwsoegc77ofm"]
 
 [ext_resource type="Script" path="res://scripts/enemyBossDefense.gd" id="1_ag6yg"]
 [ext_resource type="Texture2D" uid="uid://gagu60n4oqdi" path="res://sprites/inimigos/barreira.png" id="2_r6uqn"]
+[ext_resource type="Texture2D" uid="uid://de28iuei0b4xe" path="res://sprites/inimigos/damaged.png" id="2_saeju"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffw63"]
 size = Vector2(24, 232)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ipmyn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_saeju")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_r6uqn")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iw10r"]
-size = Vector2(24, 232)
+size = Vector2(28, 234)
 
 [node name="enemyBossDefense" type="RigidBody2D" groups=["enemy"]]
 collision_mask = 0
@@ -18,14 +38,21 @@ script = ExtResource("1_ag6yg")
 position = Vector2(3, 0)
 shape = SubResource("RectangleShape2D_ffw63")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.674927)
-texture = ExtResource("2_r6uqn")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3.5, -0.500007)
+scale = Vector2(0.0185185, 0.36725)
+sprite_frames = SubResource("SpriteFrames_ipmyn")
+animation = &"damage"
+autoplay = "normal"
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(3, 0)
+position = Vector2(4, -1)
 shape = SubResource("RectangleShape2D_iw10r")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered" flags=18]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

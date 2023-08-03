@@ -1,10 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2htwvgulpvxm"]
+[gd_scene load_steps=7 format=3 uid="uid://d2htwvgulpvxm"]
 
 [ext_resource type="Script" path="res://scripts/enemySpawner.gd" id="1_l2jr8"]
+[ext_resource type="Texture2D" uid="uid://de28iuei0b4xe" path="res://sprites/inimigos/damaged.png" id="2_b5olr"]
 [ext_resource type="Texture2D" uid="uid://3sqgiy41lf3s" path="res://sprites/inimigos/inimigo - 3.png" id="2_tbstq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0goyt"]
 size = Vector2(186, 83)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o77bh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b5olr")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tbstq")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgos7"]
 size = Vector2(189, 82)
@@ -20,10 +40,12 @@ script = ExtResource("1_l2jr8")
 position = Vector2(3, -25.5)
 shape = SubResource("RectangleShape2D_0goyt")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3.49999, -25.5)
 scale = Vector2(0.14, 0.13)
-texture = ExtResource("2_tbstq")
+sprite_frames = SubResource("SpriteFrames_o77bh")
+animation = &"damage"
+autoplay = "normal"
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -35,5 +57,9 @@ shape = SubResource("RectangleShape2D_kgos7")
 wait_time = 5.0
 autostart = true
 
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.05
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered" flags=18]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
