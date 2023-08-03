@@ -59,6 +59,7 @@ func _on_timer_timeout():
 func _on_area_2d_body_entered(body):
 	if "bulletPlayer" in body.name:
 		life -= Global.dmg
+		call_deferred("damaged")
 	if life <= 75:
 		Global.defense = 1
 		$Timer.set_wait_time(1.5)
@@ -73,3 +74,11 @@ func _on_timer_2_timeout():
 			var direction = (Global.player_position - global_position).normalized()
 			spawn_instance.global_position = global_position + direction * 150
 			get_parent().add_child(spawn_instance)
+
+
+func damaged():
+	$Sprite2D.play("damage")
+	$Timer3.start()
+
+func _on_timer_3_timeout():
+	$Sprite2D.play("normal")

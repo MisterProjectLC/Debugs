@@ -19,10 +19,20 @@ func _on_area_2d_body_entered(body):
 		queue_free()
 	if "bulletPlayer" in body.name:
 		life -= Global.dmg
+		call_deferred("damaged")
 	if "enemyBullet" in body.name:
 		life -= 1
+		call_deferred("damaged")
 	if "enemyExplosion" in body.name:
 		life -= 5
+		call_deferred("damaged")
 	if life <= 0:
 		Global.alive -= 1
 		queue_free()
+
+func damaged():
+	$Sprite2D.play("damage")
+	$Timer.start()
+
+func _on_timer_timeout():
+	$Sprite2D.play("normal")

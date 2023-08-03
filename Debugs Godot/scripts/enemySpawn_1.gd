@@ -21,10 +21,13 @@ func _on_area_2d_body_entered(body):
 		queue_free()
 	if "bulletPlayer" in body.name:
 		life -= Global.dmg
+		call_deferred("damaged")
 	elif "enemyBullet" in body.name:
 		life -= 1
+		call_deferred("damaged")
 	elif "enemyExplosion" in body.name:
 		life -= 5
+		call_deferred("damaged")
 	if life <= 0:
 		queue_free()
 
@@ -36,3 +39,11 @@ func _on_timer_timeout():
 		spawn_instance.global_position = global_position + direction * -40
 		get_parent().add_child(spawn_instance)
 		spawn_instance.rotation_degrees = rotation_degrees
+
+
+func damaged():
+	$Sprite2D.play("damage")
+	$Timer2.start()
+
+func _on_timer_2_timeout():
+	$Sprite2D.play("normal")

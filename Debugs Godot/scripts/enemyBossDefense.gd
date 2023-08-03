@@ -17,7 +17,13 @@ func _process(_delta):
 func _on_area_2d_body_entered(body):
 	if "bulletPlayer" in body.name:
 		life -= Global.dmg
-	elif "enemyBullet" in body.name:
-		life -= 1
+		call_deferred("damaged")
 	if life <= 0:
 		queue_free()
+
+func damaged():
+	$Sprite2D.play("damage")
+	$Timer.start()
+
+func _on_timer_timeout():
+	$Sprite2D.play("normal")
