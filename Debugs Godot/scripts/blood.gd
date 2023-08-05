@@ -18,3 +18,8 @@ func _on_freeze_timeout():
 	set_process_internal(false)
 	set_process_unhandled_input(false)
 	set_process_unhandled_key_input(false)
+	$Timer.start()
+
+
+func _on_timer_timeout():
+	queue_free()

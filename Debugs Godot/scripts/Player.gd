@@ -3,6 +3,7 @@ extends RigidBody2D
 @export var speed = 500 
 var screen_size
 var bullet = preload("res://scenes/Bullet.tscn")
+var blood = preload("res://scenes/blood - player.tscn")
 var can_fire = true
 
 func _ready():
@@ -78,7 +79,10 @@ func _on_area_2d_body_entered(body):
 		if Global.upgrades[3] == 1:
 			Global.upgrades[3] = 0
 		else: 
-			get_tree().queue_delete(self)
+			var blood_instance = blood.instantiate()
+			blood_instance.global_position = global_position 
+			get_parent().add_child(blood_instance)
+			queue_free()
 			get_tree().change_scene_to_file("res://scenes/kill.tscn")
 	if "shotgun" in body.name:
 		Global.gun = "s"
