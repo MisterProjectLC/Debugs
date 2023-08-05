@@ -23,4 +23,8 @@ wait_time = 0.15
 one_shot = true
 autostart = true
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="timeout" from="freeze" to="." method="_on_freeze_timeout" flags=18]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
