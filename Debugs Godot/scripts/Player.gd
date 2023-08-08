@@ -4,6 +4,7 @@ extends RigidBody2D
 var screen_size
 var bullet = preload("res://scenes/Bullet.tscn")
 var blood = preload("res://scenes/blood - player.tscn")
+var debbug = preload("res://scenes/debbuger - broken.tscn")
 var can_fire = true
 
 func _ready():
@@ -78,6 +79,9 @@ func _on_area_2d_body_entered(body):
 	if "enemy" in body.name:
 		if Global.upgrades[3] == 1:
 			Global.upgrades[3] = 0
+			var debbug_instance = debbug.instantiate()
+			debbug_instance.global_position = global_position 
+			get_parent().add_child(debbug_instance)
 		else: 
 			var blood_instance = blood.instantiate()
 			blood_instance.global_position = global_position 
