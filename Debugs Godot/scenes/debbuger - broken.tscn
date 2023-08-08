@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd6xhwn0htam5"]
+
+[ext_resource type="Texture2D" uid="uid://63rw648utftk" path="res://sprites/upgrades/debbuger - broken.png" id="1_r6m7c"]
+[ext_resource type="Script" path="res://scripts/blood.gd" id="2_3tuc7"]
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+amount = 1
+lifetime = 0.2
+texture = ExtResource("1_r6m7c")
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+scale_amount_min = 0.4
+scale_amount_max = 0.4
+script = ExtResource("2_3tuc7")
+
+[node name="freeze" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+autostart = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="freeze" to="." method="_on_freeze_timeout" flags=18]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout" flags=18]
