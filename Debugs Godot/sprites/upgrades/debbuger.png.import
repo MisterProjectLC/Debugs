@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyxs7m0a2rg3o"
-path="res://.godot/imported/debugger - placeholder.png-6cdac4bbe4929be9861450b96fd0168e.ctex"
+uid="uid://b6mhvjgjorfu8"
+path="res://.godot/imported/debbuger.png-1cf5d18657618477f3b0eba13c108493.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/upgrades/debugger - placeholder.png"
-dest_files=["res://.godot/imported/debugger - placeholder.png-6cdac4bbe4929be9861450b96fd0168e.ctex"]
+source_file="res://sprites/upgrades/debbuger.png"
+dest_files=["res://.godot/imported/debbuger.png-1cf5d18657618477f3b0eba13c108493.ctex"]
 
 [params]
 
