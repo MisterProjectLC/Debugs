@@ -13,6 +13,11 @@ func _ready():
 	
 func _process(delta):
 	Global.player_position = self.global_position
+	match (Global.gun):
+		"p": $AnimatedSprite2D.play("default")
+		"s": $AnimatedSprite2D.play("shotgun")
+		"a": $AnimatedSprite2D.play("ak47")
+		"n": $AnimatedSprite2D.play("sniper")
 	var velocity = Vector2()
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
@@ -25,16 +30,18 @@ func _process(delta):
 	if Input.is_action_pressed("fire") and can_fire: 
 		fire(Global.gun)
 	if Input.is_action_just_pressed("change_gun"): 
-		var aux = [Global.gun, Global.firetime, Global.dmg, Global.bullet_speed]
+		var aux = [Global.gun, Global.firetime, Global.dmg, Global.bullet_speed, Global.bullet_distance]
 		Global.gun = Global.change_gun[0]
 		Global.firetime = Global.change_gun[1]
 		$Timer.set_wait_time(Global.firetime)
 		Global.dmg = Global.change_gun[2]
 		Global.bullet_speed = Global.change_gun[3]
+		Global.bullet_distance = Global.change_gun[4]
 		Global.change_gun[0] = aux[0]
 		Global.change_gun[1] = aux[1]
 		Global.change_gun[2] = aux[2]
 		Global.change_gun[3] = aux[3]
+		Global.change_gun[4] = aux[4]
 		
 	move_and_collide(velocity.normalized() * speed * delta)
 	
@@ -43,15 +50,15 @@ func _process(delta):
 	position.y = clamp(position.y, 0, screen_size.y)
 	look_at(get_global_mouse_position())
 	
-	
 func fire(gun):
-	if gun == "p" or gun == "m" or gun == "n":
+	if gun == "p" or gun == "a" or gun == "n":
 		can_fire = false
 		var bullet_instance = bullet.instantiate()
 		get_parent().add_child(bullet_instance)
-		bullet_instance.position = $Marker2D.global_position
+		var direction = (get_global_mouse_position() - global_position).normalized()
+		bullet_instance.position = global_position + direction * Global.bullet_distance
 		bullet_instance.rotation_degrees = rotation_degrees
-		bullet_instance.apply_central_impulse((get_global_mouse_position() - global_position).normalized() * Global.bullet_speed)
+		bullet_instance.apply_central_impulse(direction * Global.bullet_speed)
 	elif gun == "s":
 		can_fire = false
 		var bullet_instance = bullet.instantiate()
@@ -62,14 +69,15 @@ func fire(gun):
 		get_parent().add_child(bullet_instance1)
 		get_parent().add_child(bullet_instance2)
 		get_parent().add_child(bullet_instance3)
-		bullet_instance.position = $Marker2D.global_position
-		bullet_instance1.position = $Marker2D.global_position
-		bullet_instance2.position = $Marker2D.global_position
-		bullet_instance3.position = $Marker2D.global_position
-		bullet_instance.apply_central_impulse((get_global_mouse_position() - global_position).normalized() * Global.bullet_speed - Vector2(0,30))
-		bullet_instance1.apply_central_impulse((get_global_mouse_position() - global_position).normalized() * Global.bullet_speed + Vector2(100,500))
-		bullet_instance2.apply_central_impulse((get_global_mouse_position() - global_position).normalized() * Global.bullet_speed - Vector2(200,200))
-		bullet_instance3.apply_central_impulse((get_global_mouse_position() - global_position).normalized() * Global.bullet_speed)
+		var direction = (get_global_mouse_position() - global_position).normalized()
+		bullet_instance.position = global_position + direction * Global.bullet_distance
+		bullet_instance1.position = global_position + direction * Global.bullet_distance
+		bullet_instance2.position = global_position + direction * Global.bullet_distance
+		bullet_instance3.position = global_position + direction * Global.bullet_distance
+		bullet_instance.apply_central_impulse(direction * Global.bullet_speed - Vector2(0,30))
+		bullet_instance1.apply_central_impulse(direction * Global.bullet_speed + Vector2(100,500))
+		bullet_instance2.apply_central_impulse(direction * Global.bullet_speed - Vector2(200,200))
+		bullet_instance3.apply_central_impulse(direction * Global.bullet_speed)
 	$Timer.start()
 
 func _on_timer_timeout():
@@ -94,21 +102,29 @@ func _on_area_2d_body_entered(body):
 		$Timer.set_wait_time(Global.firetime)
 		Global.dmg = 3
 		Global.bullet_speed = 1500
+		Global.bullet_distance = 55
+		body.queue_free()
 	elif "sniper" in body.name:
 		Global.gun = "n"
 		Global.dmg = 12
 		Global.bullet_speed = 2000
 		Global.firetime = 1
+		Global.bullet_distance = 80
 		$Timer.set_wait_time(Global.firetime)
-	elif "minigun" in body.name:
-		Global.gun = "m"
+		body.queue_free()
+	elif "ak47" in body.name:
+		Global.gun = "a"
 		Global.firetime = 0.2
 		$Timer.set_wait_time(Global.firetime)
+		Global.bullet_distance = 63
+		body.queue_free()
 	if "RTX" in body.name:
 		speed = 600
 		Global.upgrades[0] = 1
+		body.queue_free()
 	if "BB" in body.name:
 		Global.upgrades[1] = 1
+		body.queue_free()
 		match Global.gun:
 			"p": Global.dmg = 3
 			"s": Global.dmg = 4
@@ -121,6 +137,7 @@ func _on_area_2d_body_entered(body):
 			"n": Global.change_gun[2] = 15
 	if "qsort" in body.name:
 		Global.upgrades[2] = 1
+		body.queue_free()
 		match Global.gun:
 			"p": Global.firetime = 0.25
 			"s": Global.firetime = 0.6
@@ -134,4 +151,5 @@ func _on_area_2d_body_entered(body):
 		$Timer.set_wait_time(Global.firetime)
 	if "debbuger" in body.name:
 		Global.upgrades[3] = 1
+		body.queue_free()
 

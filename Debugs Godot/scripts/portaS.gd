@@ -27,7 +27,7 @@ func _on_area_2d_body_entered(body):
 				Global.mark = randi_range(1,4)
 				match Global.mark:
 					1: get_tree().change_scene_to_file("res://scenes/sala_bb.tscn")
-					2: get_tree().change_scene_to_file("res://scenes/sala_bt.tscn")
+					2: get_tree().change_scene_to_file("res://scenes/sala_rtx.tscn")
 					3: get_tree().change_scene_to_file("res://scenes/sala_qsort.tscn")
 					4: get_tree().change_scene_to_file("res://scenes/sala_debbuger.tscn")
 			4:
@@ -75,7 +75,7 @@ func _on_area_2d_body_entered(body):
 						Global.mark += 1
 				match Global.mark:
 					1: get_tree().change_scene_to_file("res://scenes/sala_bb.tscn")
-					2: get_tree().change_scene_to_file("res://scenes/sala_bt.tscn")
+					2: get_tree().change_scene_to_file("res://scenes/sala_rtx.tscn")
 					3: get_tree().change_scene_to_file("res://scenes/sala_qsort.tscn")
 					4: get_tree().change_scene_to_file("res://scenes/sala_debbuger.tscn")
 			10:
