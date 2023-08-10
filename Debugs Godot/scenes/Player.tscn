@@ -61,6 +61,7 @@ position = Vector2(40, 1)
 position = Vector2(7, 1)
 scale = Vector2(2.38, 2.2)
 sprite_frames = SubResource("SpriteFrames_mxd7x")
+animation = &"sniper"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -3,17 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://c0luugvm5oxr2" path="res://sprites/armas/ak47.png" id="1_2q3cq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktduq"]
-size = Vector2(74, 31)
+size = Vector2(118, 50)
 
 [node name="ak47" type="RigidBody2D"]
 gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.7, 0.7)
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("1_2q3cq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 3.5)
+position = Vector2(3, 6)
 shape = SubResource("RectangleShape2D_ktduq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
