@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bxpmmffr5afbw" path="res://scenes/portaE.tscn" id="3_n1sy6"]
 [ext_resource type="PackedScene" uid="uid://0qgn7w5jan8t" path="res://scenes/portaS.tscn" id="4_nbnv4"]
 [ext_resource type="TileSet" uid="uid://bcwkh0i46138d" path="res://tilemaps/floor.tres" id="5_0eihe"]
-[ext_resource type="PackedScene" uid="uid://gmyt10k15mt7" path="res://scenes/bt.tscn" id="5_o2urv"]
+[ext_resource type="PackedScene" uid="uid://gmyt10k15mt7" path="res://scenes/rtx.tscn" id="5_o2urv"]
 
 [node name="sala_BT" type="Node2D"]
 
@@ -19,7 +19,7 @@ position = Vector2(-15, 540)
 [node name="portaSaida" parent="." instance=ExtResource("4_nbnv4")]
 position = Vector2(1935, 540)
 
-[node name="BT" parent="." instance=ExtResource("5_o2urv")]
+[node name="RTX" parent="." instance=ExtResource("5_o2urv")]
 position = Vector2(960, 540)
 
 [node name="Camera2D" type="Camera2D" parent="."]
