@@ -104,10 +104,10 @@ func _on_area_2d_body_entered(body):
 		Global.gun = "m"
 		Global.firetime = 0.2
 		$Timer.set_wait_time(Global.firetime)
-	if "BB" in body.name:
+	if "RTX" in body.name:
 		speed = 600
 		Global.upgrades[0] = 1
-	if "BT" in body.name:
+	if "BB" in body.name:
 		Global.upgrades[1] = 1
 		match Global.gun:
 			"p": Global.dmg = 3
