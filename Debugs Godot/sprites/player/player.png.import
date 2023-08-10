@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bslkot7qeiip3"
-path="res://.godot/imported/armado - player - dir.png-f8137f2b8c7cbfe6dd9f1615231ff8e3.ctex"
+uid="uid://cilr5thiih5pa"
+path="res://.godot/imported/player.png-d7cf692c56caa56dbbea53bfec00b54f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/player/armado - player - dir.png"
-dest_files=["res://.godot/imported/armado - player - dir.png-f8137f2b8c7cbfe6dd9f1615231ff8e3.ctex"]
+source_file="res://sprites/player/player.png"
+dest_files=["res://.godot/imported/player.png-d7cf692c56caa56dbbea53bfec00b54f.ctex"]
 
 [params]
 

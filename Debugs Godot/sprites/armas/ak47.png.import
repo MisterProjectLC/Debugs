@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mmd33fbrjlc2"
-path="res://.godot/imported/referencia - player - esq.png-e4b181f04b681a696d936595cbd987a9.ctex"
+uid="uid://c0luugvm5oxr2"
+path="res://.godot/imported/ak47.png-29a1de289b7b86255971b518e75467eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/player/referencia - player - esq.png"
-dest_files=["res://.godot/imported/referencia - player - esq.png-e4b181f04b681a696d936595cbd987a9.ctex"]
+source_file="res://sprites/armas/ak47.png"
+dest_files=["res://.godot/imported/ak47.png-29a1de289b7b86255971b518e75467eb.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl2l6cgtoxnyc"
-path="res://.godot/imported/armado - player - frente .png-d96d27c363060d980170228ce3eef02f.ctex"
+uid="uid://b0ypd650jgm71"
+path="res://.godot/imported/player - shotgun.png-193bd1355589ca73dedc5851395e6d8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/player/armado - player - frente .png"
-dest_files=["res://.godot/imported/armado - player - frente .png-d96d27c363060d980170228ce3eef02f.ctex"]
+source_file="res://sprites/player/player - shotgun.png"
+dest_files=["res://.godot/imported/player - shotgun.png-193bd1355589ca73dedc5851395e6d8c.ctex"]
 
 [params]
 

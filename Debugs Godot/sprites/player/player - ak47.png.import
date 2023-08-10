@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bktix71wg7moq"
-path="res://.godot/imported/referencia - player - frente .png-e432b13239caad20526f63610558ef72.ctex"
+uid="uid://bfw0s14hm518h"
+path="res://.godot/imported/player - ak47.png-73b4b381ef4541000f23bda152775f08.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/player/referencia - player - frente .png"
-dest_files=["res://.godot/imported/referencia - player - frente .png-e432b13239caad20526f63610558ef72.ctex"]
+source_file="res://sprites/player/player - ak47.png"
+dest_files=["res://.godot/imported/player - ak47.png-73b4b381ef4541000f23bda152775f08.ctex"]
 
 [params]
 
