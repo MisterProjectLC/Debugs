@@ -53,3 +53,7 @@ func damaged():
 
 func _on_timer_2_timeout():
 	$Sprite2D.play("normal")
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()
