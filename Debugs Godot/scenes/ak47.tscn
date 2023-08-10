@@ -1,17 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvxpcuekqsd0q"]
+[gd_scene load_steps=3 format=3 uid="uid://dwj7ktx2cvnyd"]
 
-[ext_resource type="Texture2D" uid="uid://vrs88t8q5rye" path="res://sprites/armas/Sniper - placeholder.png" id="2_6g0vy"]
+[ext_resource type="Texture2D" uid="uid://c0luugvm5oxr2" path="res://sprites/armas/ak47.png" id="1_2q3cq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktduq"]
-size = Vector2(64, 18)
+size = Vector2(74, 31)
 
-[node name="sniper" type="RigidBody2D"]
+[node name="ak47" type="RigidBody2D"]
 gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_6g0vy")
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_2q3cq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 3.5)
 shape = SubResource("RectangleShape2D_ktduq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]

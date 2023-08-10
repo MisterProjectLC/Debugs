@@ -1,33 +1,51 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3o4hokfl01gr"]
+[gd_scene load_steps=9 format=3 uid="uid://d3o4hokfl01gr"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_1qpqu"]
-[ext_resource type="Texture2D" uid="uid://bslkot7qeiip3" path="res://sprites/player/armado - player - dir.png" id="3_ngyy0"]
-[ext_resource type="Texture2D" uid="uid://c0m4x32kkf6x1" path="res://sprites/player/armado - player - esq.png" id="4_t0oqf"]
+[ext_resource type="Texture2D" uid="uid://cilr5thiih5pa" path="res://sprites/player/player.png" id="2_4netm"]
+[ext_resource type="Texture2D" uid="uid://bfw0s14hm518h" path="res://sprites/player/player - ak47.png" id="2_m37mx"]
+[ext_resource type="Texture2D" uid="uid://b0ypd650jgm71" path="res://sprites/player/player - shotgun.png" id="4_k1vhl"]
+[ext_resource type="Texture2D" uid="uid://cwt15qrqel7vh" path="res://sprites/player/player - sniper.png" id="5_t8xji"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mxd7x"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_ngyy0")
+"texture": ExtResource("2_m37mx")
 }],
 "loop": true,
-"name": &"dir",
+"name": &"ak47",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_t0oqf")
+"texture": ExtResource("2_4netm")
 }],
 "loop": true,
-"name": &"esq",
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_k1vhl")
+}],
+"loop": true,
+"name": &"shotgun",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_t8xji")
+}],
+"loop": true,
+"name": &"sniper",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjiy5"]
-size = Vector2(37, 108)
+size = Vector2(60.875, 68)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4w0n"]
-size = Vector2(37, 108)
+size = Vector2(60.5, 68)
 
 [node name="player" type="RigidBody2D"]
 collision_priority = 1e+09
@@ -36,27 +54,28 @@ gravity_scale = 0.0
 can_sleep = false
 script = ExtResource("1_1qpqu")
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(40, 1)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(3, 3)
+position = Vector2(7, 1)
+scale = Vector2(2.38, 2.2)
 sprite_frames = SubResource("SpriteFrames_mxd7x")
-animation = &"dir"
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4.5, 1)
+position = Vector2(-25.4375, 1)
 shape = SubResource("RectangleShape2D_gjiy5")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-4.5, 1)
+position = Vector2(-25.25, 1)
 shape = SubResource("RectangleShape2D_q4w0n")
 one_way_collision_margin = 0.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.33
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(14, 0)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
