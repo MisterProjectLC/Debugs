@@ -21,6 +21,7 @@ position = Vector2(1935, 540)
 
 [node name="debbuger" parent="." instance=ExtResource("5_pqnat")]
 position = Vector2(960, 540)
+script = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(962, 547)
