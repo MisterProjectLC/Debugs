@@ -3,7 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Label.text = "Fase: " + str(Global.index)
+	$Label.text = "Sala: " + str(Global.index)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -9,9 +9,6 @@ func _process(_delta):
 	pass
 
 func _on_area_2d_body_entered(body):
-	if "player" in body.name and Global.upgrades[3] == 1:
-		Global.alive -= 1
-		queue_free()
 	if "player" in body.name or "enemyS" in body.name or "enemyBomb" in body.name or "enemyV" in body.name:
 		queue_free()
 

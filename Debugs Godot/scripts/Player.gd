@@ -152,4 +152,3 @@ func _on_area_2d_body_entered(body):
 	if "debbuger" in body.name:
 		Global.upgrades[3] = 1
 		body.queue_free()
-

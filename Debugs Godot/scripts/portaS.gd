@@ -48,7 +48,7 @@ func _on_area_2d_body_entered(body):
 			6:
 				Global.mark = randi_range(1,3)
 				match Global.mark:
-					1: get_tree().change_scene_to_file("res://scenes/sala_minigun.tscn")
+					1: get_tree().change_scene_to_file("res://scenes/sala_ak47.tscn")
 					2: get_tree().change_scene_to_file("res://scenes/sala_sniper.tscn")
 					3: get_tree().change_scene_to_file("res://scenes/sala_shotgun.tscn")
 			7:
