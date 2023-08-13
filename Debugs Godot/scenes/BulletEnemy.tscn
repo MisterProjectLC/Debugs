@@ -11,6 +11,7 @@ size = Vector2(36, 10)
 
 [node name="enemyBullet" type="RigidBody2D" groups=["enemy", "f_fire"]]
 collision_mask = 0
+mass = 0.01
 gravity_scale = 0.0
 script = ExtResource("1_1sch1")
 

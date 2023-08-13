@@ -19,7 +19,7 @@ position = Vector2(-15, 540)
 [node name="portaSaida" parent="." instance=ExtResource("4_t7tqn")]
 position = Vector2(1935, 540)
 
-[node name="minigun" parent="." instance=ExtResource("5_hh4en")]
+[node name="ak47" parent="." instance=ExtResource("5_hh4en")]
 position = Vector2(960, 540)
 
 [node name="Camera2D" type="Camera2D" parent="."]

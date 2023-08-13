@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://3sqgiy41lf3s" path="res://sprites/inimigos/inimigo - 3.png" id="2_tbstq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0goyt"]
-size = Vector2(186, 83)
+size = Vector2(186, 82)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o77bh"]
 animations = [{
@@ -37,7 +37,7 @@ can_sleep = false
 script = ExtResource("1_l2jr8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, -25.5)
+position = Vector2(3, -26)
 shape = SubResource("RectangleShape2D_0goyt")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]

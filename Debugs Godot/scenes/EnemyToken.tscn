@@ -27,7 +27,7 @@ animations = [{
 size = Vector2(175, 86)
 
 [node name="enemyToken" type="RigidBody2D" groups=["enemy", "f_fire"]]
-mass = 1000.0
+mass = 0.1
 gravity_scale = 0.0
 can_sleep = false
 script = ExtResource("2_ra8iy")
